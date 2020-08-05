@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница магазина</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+      <div class="bg-dark collapse" id="navbarHeader" style="">
+      </div>
+      <div class="navbar navbar-dark box-shadow" style="background-color: black;">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <img width="32" height="32" src="{{ url_for('static',filename='img/blackredify.png')  }}">
+            <strong style="margin-left: 10px;">Магазин Blackredify</strong>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Ноутбуки</h1>
+          <p class="lead text-muted">Ноутбуки - неотъемлемая часть современной жизни, они компакты и их можно взять с собой. Они также функциональны, как и настольные ПК. В нашем магазине Blackredify представлен большой выбор современных ноутбуков.</p>
+          <p>
+            <a href="/{{ your_laptop }}" class="btn btn-primary my-2">Выбрать ваш ноутбук</a>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+
+            {% for laptop in all_laptops %}
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="{{ laptop.img }}" data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">{{ laptop.name}}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="/{{ laptop.id }}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Наверх</a>
+        </p>
+        <p>Магазин техники Blackredify</p>
+      </div>
+    </footer>
+
+</body>
+</html>

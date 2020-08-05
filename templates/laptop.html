@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> {{ laptop.name }} </title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+      <div class="bg-dark collapse" id="navbarHeader" style="">
+      </div>
+      <div class="navbar navbar-dark box-shadow" style="background-color: black;">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <img width="32" height="32" src="{{ url_for('static',filename='img/blackredify.png')  }}">
+            <strong style="margin-left: 10px;">Магазин Blackredify</strong>
+          </a>
+        </div>
+      </div>
+    </header>
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">{{ laptop.name }} </h1>
+          <img src="{{ laptop.img }}" class="img-fluid" alt="Responsive image" style="padding-top: 20px; padding-bottom: 20px;">
+          <p class="lead text-muted">{{ laptop.description }}</p>
+          <ul class="list-group">
+              <li class="list-group-item">Название: {{ laptop.name }}</li>
+              <li class="list-group-item">Год: {{ laptop.year }}</li>
+              <li class="list-group-item">Процессор: {{ laptop.processor }}</li>
+              <li class="list-group-item">Цвет: {{ laptop.color }}</li>
+              <li class="list-group-item">Тип накопителя: {{ laptop.storage }}</li>
+          </ul>
+        </div>
+      </section>
+
+
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Наверх</a>
+        </p>
+        <p>Магазин техники Blackredify</p>
+      </div>
+    </footer>
+
+</body>
+</html>
